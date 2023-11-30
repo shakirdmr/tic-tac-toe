@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import circle from '../Assets/circle.png';
 import cross from '../Assets/cross.png';
+
 import './TicTacToe.css';
 
 
+let data = ["","","","","","","","",""];
+
 function TicTacToe() {
 
-    let data = ["","","","","","","","",""];
+  
     let [count, setCount] = useState(0);
     let [lock,setLock] = useState(false);
+    console.log(data);
     
     const resetGame =()=>{
         setCount(0);
@@ -17,9 +21,13 @@ function TicTacToe() {
     } 
 
     const toggle = (e, num) => {
-        if (lock) return 0;
+        if (lock || count>8) {
+           alert("GAME ALREADY WON OR TIED \n RESET THE GAME TO START AGAIN");
+            return 0;
        
-    
+        }
+
+
         if (count % 2 === 0) {
             e.target.innerHTML = `<img src='${cross}' />`;
             data[num] = "X";
@@ -65,6 +73,10 @@ function TicTacToe() {
         {
         won(data)
         }
+        else if(data[0]===data[3] && data[3]===data[6] && data[6]!=="")
+        {
+        won(data)
+        }
         else if(data[0]===data[1] && data[1]===data[2] && data[2]!=="")
         {
         won(data)
@@ -104,11 +116,13 @@ function TicTacToe() {
                 <div className="row3">
                     <div className="boxes" onClick={(e)=>{ toggle(e,6)}}></div>
                     <div className="boxes" onClick={(e)=>{ toggle(e,7)}}></div>
-                    <div className="boxes" onClick={(e)=>{ toggle(e,9)}}></div>
+                    <div className="boxes" onClick={(e)=>{ toggle(e,8)}}></div>
                 </div>
             </div>
 
             <button className="reset" onClick={resetGame}>Reset Game</button>
+
+            
     </div>
   )
 }
