@@ -17,7 +17,7 @@
 .board{
     display: flex;
     flex-direction: column;
-    margin:20px;
+    margin:10px;
 }
 
 
@@ -38,13 +38,13 @@
 
 .boxes{
     cursor: pointer;
-    background-color: rgb(35, 31, 31);
+    background-color:rgb(104, 44, 201);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 160px;
-    width: 160px;
+    height: 130px;
+    width: 130px;
     border-radius: 10px;
     margin:3px;
     padding: 10px;
