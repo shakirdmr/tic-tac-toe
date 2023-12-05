@@ -98,7 +98,10 @@ span{
     }
       /* Styles for the Alert modal */
 
-      
+    
+      #winner{
+        display: none;
+      }
 
 @media (max-width:600px){
 

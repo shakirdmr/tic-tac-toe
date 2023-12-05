@@ -29,7 +29,7 @@ function TicTacToe() {
 
     const resetGame =()=>{
 
-
+        document.getElementById("winner").style.display = "none";
         setCount(0);
         data = ["","","","","","","","",""];
         setLock(false);
@@ -47,6 +47,8 @@ function TicTacToe() {
        
         }
 
+        if(data[num] !=="")
+        return 0;
 
         if (count % 2 === 0) {
             e.target.innerHTML = `<img src='${cross}' />`;
@@ -113,6 +115,7 @@ function TicTacToe() {
     }
 
     const won = (winner)=>{
+        document.getElementById("winner").style.display = "block";
         document.getElementById("winner").innerHTML = "Winner is "+ winner;
        
         setLock(true);
